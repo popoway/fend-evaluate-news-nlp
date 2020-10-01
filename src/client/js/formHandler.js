@@ -26,10 +26,12 @@ function handleSubmit(event) {
   Confidence : ${res.confidence.toLowerCase()}
   Irony : ${res.irony.toLowerCase()}
           `
+          return JSON.stringify(res)
       })
-    }
+    } // parse the response body to dynamically fill content on the page
     else {
       alert('Input is not valid URL. Try again')
+      return false
     }
 }
 
