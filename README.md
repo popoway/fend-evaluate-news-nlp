@@ -2,9 +2,9 @@
 
 ## Introduction
 
-Powered by Node.js and Express, this is a project for the [Udacity Front End Web Developer Nanodegree Program](https://classroom.udacity.com/nanodegrees/nd0011/). It is a web tool that allows users to run Natural Language Processing (NLP) on articles or blogs found on other websites.
+It is a web tool that allows users to run Natural Language Processing (NLP) on articles or blogs found on other websites. This project is part of the [Udacity Front End Web Developer Nanodegree Program](https://classroom.udacity.com/nanodegrees/nd0011/). 
 
-The project aims to practice the following skills:
+The project aims at practicing the following skills:
 - Setting up Webpack
 - Sass styles
 - Webpack Loaders and Plugins
@@ -22,7 +22,7 @@ That completes the initial setup.
 3. To start a development build, use `npm run build-dev`
 4. To start a production build, use `npm run build-prod`
 5. Use `npm run start` to start the Express server.
-6. To run unit testing for the client side JavaScript, use `npm test` 
+6. To run unit testing for the client side JavaScript, use `npm test`
 
 ## Prerequisite
 - Webserver - Node
