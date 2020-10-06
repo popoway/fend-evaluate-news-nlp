@@ -1,17 +1,18 @@
 // Import the js file to test
-import { handleSubmit } from "../src/client/js/formHandler"
+import { handleFetch } from "../src/client/js/formHandler"
 
 // The describe() function takes two arguments - a string description, and a test suite as a callback function.
 // A test suite may contain one or more related tests
 describe("Testing the submit functionality", () => {
     // The test() function has two arguments - a string description, and an actual test as a callback function.
-    test("Testing the handleSubmit() function", done => {
+    test("Testing the handleSubmit() function", () => {
         // Define the input for the function, if any, in the form of variables/array
         const input = 'https://www.bbc.com/news/election-us-2020-54365868'
         // Define the expected output, if any, in the form of variables/array
-        const expected = {"msg": "OK"}
+        const expected = true
 
-        const event = { preventDefault: () => {} }; // Mock event.preventDefault() in Jest
+        // Mock event.preventDefault()
+        const event = { preventDefault: () => {} };
         jest.spyOn(event, 'preventDefault');
 
         // Set up our document body
@@ -30,6 +31,10 @@ describe("Testing the submit functionality", () => {
         }
 
         // Mock fetch API
+        const handleFetch = jest.fn().mockImplementation(() => {
+          document.getElementById('loading').innerHTML = 'Loading results from MeaningCloud...'
+          return true;
+        })
         global.fetch = jest.fn().mockImplementation(() => {
             let p = new Promise((resolve, reject) => {
               resolve({
@@ -43,8 +48,5 @@ describe("Testing the submit functionality", () => {
         });
 
         // The expect() function, in combination with a Jest matcher, is used to check if the function produces the expected output
-        return handleSubmit(event).then(data => {
-            // expect.assertions(1);
-            expect(typeof data).toBe('object')
-        });
+        expect(handleFetch(input)).toBeTruthy();
 })});
