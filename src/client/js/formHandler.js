@@ -29,7 +29,9 @@ function handleFetch(url) {
       })
   })
   .then(res => res.json())
-  .then(parseResult(res))
+  .then(function(res) {
+    parseResult(res)
+  })
   return true
 }
 
